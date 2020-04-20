@@ -43,7 +43,6 @@ public class Main {
         Scanner scan = new Scanner(toread);
         int c = 0;
 
-
         while(scan.hasNextLine())
         {
             lines.add(scan.nextLine());
@@ -53,10 +52,11 @@ public class Main {
         //.....................................................
 
         String[] voiceCommands = lines.toArray(new String[c]);
-        for(int i = 0; i < voiceCommands.length; i++)
+        for( int i = 0; i < voiceCommands.length; i++)
         {
             voiceCommands[i] = voiceCommands[i].toUpperCase();
             String[] voiceSplit = voiceCommands[i].split(" ");
+
             for(int j = 0; j < voiceSplit.length; j++)
             {
                 if(map.get(voiceSplit[j]) != null)

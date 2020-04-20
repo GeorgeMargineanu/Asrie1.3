@@ -8,12 +8,12 @@ public class Client
 {
     final static int ServerPort = 9876;
 
-    public static void main(String args[]) throws UnknownHostException, IOException
+    public static void main(String args[]) throws IOException
     {
         InetAddress ip = InetAddress.getByName("localhost");
 
         Socket socket = new Socket(ip, ServerPort);
-        ServerConnection  serverConn = new ServerConnection(socket);
+        ServerConnection serverConn = new ServerConnection(socket);
 
         new Thread(serverConn).start();
     }
