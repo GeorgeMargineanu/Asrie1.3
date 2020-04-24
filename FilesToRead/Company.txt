@@ -1,9 +1,10 @@
-NorthTrans
-shamrock
-airfrans
-airfrance
-air frans
-jersey
+NORTHRANS
+SHAMROCK
+AIRFRANCE
+AIRFRANS
+AIR FRANCE
+AIR FRANS
+JERSEY
 STOBART
 AMERICAN
 POYSTON

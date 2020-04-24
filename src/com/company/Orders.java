@@ -99,6 +99,12 @@ public class Orders extends Main {
                                 result[i] += level.print();
                                 break;
                             }
+                            case "DESCENT":	 { 	Descend level = new Descend();
+                                level.getNumbers(clearanceSplit, keyWord);
+                                level.descend();
+                                result[i] += level.print();
+                                break;
+                            }
                             case "CLIMB":	 { 	Climb climb = new Climb();
                                 climb.getNumbers(clearanceSplit, keyWord);
                                 climb.climb();

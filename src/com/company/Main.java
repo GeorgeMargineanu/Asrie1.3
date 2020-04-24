@@ -5,7 +5,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class Main {
 
@@ -17,8 +17,7 @@ public class Main {
     String companyFile = "Company.txt";
     String phraseologyFile = "Phraseology.txt";
 
-    public static void  main(String[] args) throws Exception
-    {
+    public  void manti(String message) throws FileNotFoundException {
         HashMap<String , String> map = new HashMap< String, String>();
 
         map.put("ZERO", "0");
@@ -37,21 +36,11 @@ public class Main {
         List<String> lines = new ArrayList<String>();
         Main asrie = new Main();
 
-        File toread = new File ( asrie.baseDirectory + asrie.inputFile );
 
-        //Scan Commands file
-        Scanner scan = new Scanner(toread);
-        int c = 0;
+        String[] voiceCommands = {""} ;
+        voiceCommands[0] = message;
 
-        while(scan.hasNextLine())
-        {
-            lines.add(scan.nextLine());
-            c++;
-        }
-        scan.close();
-        //.....................................................
 
-        String[] voiceCommands = lines.toArray(new String[c]);
         for( int i = 0; i < voiceCommands.length; i++)
         {
             voiceCommands[i] = voiceCommands[i].toUpperCase();
@@ -70,15 +59,21 @@ public class Main {
         String[] resultOrder = new String[100];
         String[] result = new String[100];
 
-        resultCallsign = CallSign.callSign(voiceCommands);
-        resultOrder = Orders.Order(voiceCommands);
+
+        try {
+            resultCallsign = CallSign.callSign(voiceCommands);
+            resultOrder = Orders.Order(voiceCommands);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         Time.time();
-
+        System.out.println(voiceCommands[0]);
         for(int index = 0 ; index < voiceCommands.length; index++)
         {
             result[index] = Time.time() +";" + resultCallsign[index] + ";" + resultOrder[index] + ":";
-            System.out.println(result[index]);
+           System.out.println(result[index]);
         }
 
         try

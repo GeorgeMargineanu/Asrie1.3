@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class CallSign  {
 
+
     public static String[] callSign(String[] arr) throws Exception
     {
         Main asrie = new Main();
@@ -24,6 +25,7 @@ public class CallSign  {
         for(int i = 0; i < arr.length; i++)
         {
             result[i] = "";
+            System.out.println(arr[i]);
         }
 
         //	-------	GET COMPANIES

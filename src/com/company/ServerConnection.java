@@ -3,7 +3,10 @@ package com.company;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 
 public class ServerConnection implements Runnable {
 
@@ -14,54 +17,38 @@ public class ServerConnection implements Runnable {
     String outputFile = "Output.txt";
     String companyFile = "Company.txt";
     String phraseologyFile = "Phraseology.txt";
-    HashMap<String , String> map = new HashMap< String, String>();
+    HashMap<String, String> map = new HashMap<String, String>();
 
     private Socket server;
     BufferedReader ois;
     PrintWriter oos;
-    InetAddress address= InetAddress.getLocalHost();
-    public ServerConnection(Socket s) throws IOException
-    {
+    InetAddress address = InetAddress.getLocalHost();
+
+    public ServerConnection(Socket s) throws IOException {
         server = s;
         this.ois = new BufferedReader(new InputStreamReader(server.getInputStream()));
         this.oos = new PrintWriter(server.getOutputStream());
     }
 
     @Override
-    public void run()
-    {
-            try {
-                while (true) {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Client Addres: " + address);
+                String line = "hi server";
+                // oos.println(line);
+                oos.flush();
+                String response = ois.readLine();
+                String message = response.toUpperCase();
 
-                    map.put("ZERO", "0");
-                    map.put("ONE", "1");
-                    map.put("TWO", "2");
-                    map.put("THREE","3");
-                    map.put("FOUR", "4");
-                    map.put("FIVE", "5");
-                    map.put("SIX", "6");
-                    map.put("SEVEN", "7");
-                    map.put("EIGHT", "8");
-                    map.put("NINE", "9");
-                    map.put("ONE HUNDRED", "100");
-                    map.put("ONE THOUSAND", "1000");
-
-
-                    System.out.println("Client Addres: " + address);
-                    String line = "hi server";
-                   // oos.println(line);
-                    oos.flush();
-                    String response = ois.readLine();
-
-
-
-                    System.out.println(response);
-               }
+                Main andra = new Main();
+                andra.manti(message);
             }
-            catch (IOException e) {
+        }
+            catch(IOException e){
                 e.printStackTrace();
             }
-            finally {
+            finally{
                 try {
                     ois.close();
                     ois.close();
@@ -71,5 +58,6 @@ public class ServerConnection implements Runnable {
             }
         }
     }
+
 
 
