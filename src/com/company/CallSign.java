@@ -53,7 +53,7 @@ public class CallSign  {
         {
             switch(listofcompanies[index2])
             {
-                case "AIRFRANS": CompanyMap.put("AIRFRANS", "AFR"); break;
+                case "AIRFRANS": CompanyMap.put("AIRFRANCE", "AFR"); break;
                 case "AIRFRANCE": CompanyMap.put("AIRFRANCE", "AFR"); break;
                 case "AIR FRANCE": CompanyMap.put("AIR FRANCE", "AFR"); break;
                 case "NORTHTRANS": CompanyMap.put("NORTHTRANS", "IBK"); break;
@@ -71,11 +71,10 @@ public class CallSign  {
         for ( int i = 0; i < arr.length; i++)
         {
             parts = arr[i].split(" ");
-            for( int k = 0; k < parts.length ; k++ )
-            {
+               {
                 for(int j = 0 ; j < listofcompanies.length; j++)
                 {
-                    if(parts[k].indexOf(listofcompanies[j]) != -1)
+                    if(arr[i].indexOf(listofcompanies[j]) != -1)
                     {
                         result[i] += CompanyMap.get(listofcompanies[j]);
                     }
