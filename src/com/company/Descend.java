@@ -18,8 +18,8 @@ public class Descend extends ATCorder {
             String string = this.hm.get(this.order);
             //System.out.println(string);
             if(this.hm.get(this.order).contains("LEVEL_VALUE") )
-                return "LEVEL/CLIMB;" + string + "/" + this.order + ";";
-            else return "ALTITUDE/CLIMB;" + string + "/" + this.order + ";";
+                return "LEVEL/DESCEND;" + string + "/" + this.order + ";";
+            else return "ALTITUDE/DESCEND;" + string + "/" + this.order + ";";
         }
     }
 }
