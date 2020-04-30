@@ -25,7 +25,7 @@ public class CallSign  {
         for(int i = 0; i < arr.length; i++)
         {
             result[i] = "";
-            System.out.println(arr[i]);
+           // System.out.println(arr[i]);
         }
 
         //	-------	GET COMPANIES
@@ -90,7 +90,7 @@ public class CallSign  {
             {
                 for(int j = 0 ; j < listofcompanies.length; j++)
                 {
-                    if( parts[k].indexOf(listofcompanies[j]) != -1 )
+                    if( arr[i].indexOf(listofcompanies[j]) != -1 )
                     {
                         int l = 0;
                         l  = arr[i].indexOf(listofcompanies[j]) + listofcompanies[j].length();
