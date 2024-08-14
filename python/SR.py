@@ -19,6 +19,3 @@ client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 client.connect(( hote, 9876))
 client.send(voice_data.encode())
 client.close
-
-# salut
-# salut 3
